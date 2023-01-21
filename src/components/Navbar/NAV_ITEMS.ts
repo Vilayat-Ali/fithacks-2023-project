@@ -30,6 +30,10 @@ export const USER_ITEMS: Array<NavItemType> = [
     href: "/dashboard",
   },
   {
+    label: "Plans",
+    href: "/plans",
+  },
+  {
     label: "Profile",
     href: "/profile",
   },
