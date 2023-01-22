@@ -12,6 +12,7 @@ import {
 import { useSession, signOut, signIn } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { useRouter, NextRouter } from "next/router";
 
 // components
 import DesktopNav from "@/components/Navbar/desktop";
@@ -20,6 +21,7 @@ import { NAV_ITEMS, USER_ITEMS, NavItemType } from "./NAV_ITEMS";
 
 const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
+  const router: NextRouter = useRouter();
   const [navItem, setNavItem] = useState<NavItemType[]>([]);
 
   const { data: session } = useSession();
@@ -90,7 +92,12 @@ const Navbar = () => {
                 color: "#D8BDA9E7",
               }}
               onClick={() => {
-                session ? signOut() : signIn();
+                if (session) {
+                  signOut();
+                }
+                if (!session) {
+                  signIn();
+                }
               }}
             >
               {session ? "Logout" : "Login"}
@@ -99,7 +106,7 @@ const Navbar = () => {
         </Flex>
 
         <Collapse in={isOpen} animateOpacity>
-          <MobileNav />
+          <MobileNav nav={navItem} />
         </Collapse>
       </Box>
     </>

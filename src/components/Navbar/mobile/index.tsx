@@ -2,7 +2,7 @@
 import { Flex, Text, Stack, Link } from "@chakra-ui/react";
 
 // nav items
-import { NAV_ITEMS, NavItemType } from "../NAV_ITEMS";
+import { NavItemType } from "../NAV_ITEMS";
 
 const MobileNavItem = ({ label, href }: NavItemType) => {
   return (
@@ -27,13 +27,15 @@ const MobileNavItem = ({ label, href }: NavItemType) => {
   );
 };
 
-const MobileNav = () => {
+const MobileNav = ({ nav }: { nav: NavItemType[] }) => {
   return (
     <>
       <Stack bg={"#d8bda9"} p={4} display={{ md: "none" }}>
-        {NAV_ITEMS.map((navItem: NavItemType) => (
-          <MobileNavItem key={navItem.label} {...navItem} />
-        ))}
+        {nav
+          .filter((navItem: NavItemType) => navItem.label !== "Account")
+          .map((navItem: NavItemType) => (
+            <MobileNavItem key={navItem.label} {...navItem} />
+          ))}
       </Stack>
     </>
   );

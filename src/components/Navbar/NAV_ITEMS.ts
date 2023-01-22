@@ -26,12 +26,8 @@ export const NAV_ITEMS: Array<NavItemType> = [
 
 export const USER_ITEMS: Array<NavItemType> = [
   {
-    label: "Dashboad",
-    href: "/dashboard",
-  },
-  {
-    label: "Plans",
-    href: "/plans",
+    label: "Training",
+    href: "/training",
   },
   {
     label: "Profile",
