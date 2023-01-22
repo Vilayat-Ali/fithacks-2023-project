@@ -60,7 +60,7 @@ export default function Home() {
               <Stack direction={{ base: "column", md: "row" }} spacing={4}>
                 {session ? (
                   <>
-                    <Link href="/dashboard">
+                    <Link href="/training">
                       <Button
                         rounded={"full"}
                         bg="#010100"
@@ -70,12 +70,8 @@ export default function Home() {
                           color: "#D8BDA9E7",
                         }}
                       >
-                        Go Dashboard
+                        Go Train 🔥
                       </Button>
-                    </Link>
-
-                    <Link href="/stats">
-                      <Button rounded={"full"}>Analyze Stats</Button>
                     </Link>
                   </>
                 ) : (
@@ -92,7 +88,6 @@ export default function Home() {
                     >
                       Get Started
                     </Button>
-                    <Button rounded={"full"}>Know More</Button>
                   </>
                 )}
               </Stack>
